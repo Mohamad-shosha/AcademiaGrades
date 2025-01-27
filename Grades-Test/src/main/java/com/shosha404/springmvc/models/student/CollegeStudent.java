@@ -6,13 +6,13 @@ import javax.persistence.*;
 @Table(name = "student")
 public class CollegeStudent implements Student {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String firstname;
     @Column
     private String lastname;
-    @Column(name="email_address")
+    @Column(name = "email_address")
     private String emailAddress;
 
     public CollegeStudent() {
@@ -73,6 +73,6 @@ public class CollegeStudent implements Student {
     }
 
     public String studentInformation() {
-       return getFullName() + " " + getEmailAddress();
+        return getFullName() + " " + getEmailAddress();
     }
 }

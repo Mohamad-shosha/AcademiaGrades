@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @SpringBootTest
 @TestPropertySource("/application.properties")
 public class StudentAndGradeServiceTest {
@@ -25,4 +27,16 @@ public class StudentAndGradeServiceTest {
         Assertions.assertEquals("moshosha267@gmail.com", collegeStudent.getEmailAddress());
     }
 
+    @Test
+    public void createStudentService2() {
+        studentService.createStudent("Karim", "shosha", "karim@gmail.com");
+        String firstName = studentDao.findByEmailAddress("karim@gmail.com").getFirstname();
+        Assertions.assertEquals("Karim", firstName);
+    }
+
+    @Test
+    public void checkStudentService() {
+        assertTrue(studentService.checkIfStudentExists(1));
+
+    }
 }
